@@ -5,12 +5,9 @@ function [C, sigma] = bruteForceParams(X, y, Xval, yval)
 %
 
 	% build steps {0.001, 0.003, 0.01, 0.03, ...}
-	step_count = 8;
-	steps = zeros(step_count,1);
-	for i = 1:ceil(step_count/2)
-		steps((i*2)-1,1) = 1* (10^(i-3));
-		steps(i*2,1) = 3* (10^(i-3));
-	end
+	steps = [power(10,-2:2); 3*power(10,-2:2)];
+	steps = steps(:);
+	step_count = length(steps);
 
 	err = 0;
 	best_err = realmax();
