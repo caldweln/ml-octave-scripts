@@ -70,5 +70,5 @@ fprintf('\nTesting Performance On Test Data... \n');
 fflush(stdout);
 
 pred_test = predictOneVsAll(all_theta, X_test);
-error_test = (1 - mean(double(pred_test == y_test))) * 100
+accuracy_test = mean(double(pred_test == y_test)) * 100
 
